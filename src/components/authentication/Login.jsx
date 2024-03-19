@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import './login.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { loginUpResponseErrors } from './responseErrors';
 import Lodder from './Lodder';
 
 const Login = () => {
+
+  const navigate = useNavigate()
 
   const [isLoading, setIsLoading] = useState(false);
   const [err, setErr] = useState({});
@@ -27,7 +29,9 @@ const Login = () => {
         localStorage.setItem("access_token", data.data["access"]);
         localStorage.setItem("refresh_token", data.data["refresh"]);
         setErr("");
+        navigate("/all-social-apps");
         setIsLoading(false)
+        
       }
     })
     .catch((error) => {

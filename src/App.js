@@ -5,9 +5,13 @@ import ResendEmailVerifyCode from './components/authentication/ResendEmailVerify
 import ForgotPassword from './components/authentication/ForgotPassword';
 import ValidateForgotPasswordToken from './components/authentication/ValidateForgotPasswordToken'
 import ConfirmForgotPassword from './components/authentication/ConfirmForgotPassword'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import FacebookConnect from './components/social/FacebookConnect'
+import InstagramConnect from './components/social/InstagramConnect';
+import AllSocialApps from './components/social/AllSocialApps';
 
+import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 
 function App() {
   return (
@@ -21,6 +25,9 @@ function App() {
           <Route path='forgot-password' element={<ForgotPassword/>}></Route>
           <Route path='validate-forgot-password-token' element={<ValidateForgotPasswordToken/>}></Route>
           <Route path='confirm-forgot-password' element={<ConfirmForgotPassword/>}></Route>
+          <Route path='insta' element={<InstagramConnect />}></Route>
+          <Route path="facebook" element={<FacebookConnect />}></Route>
+          <Route path="all-social-apps" element={<AllSocialApps />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
