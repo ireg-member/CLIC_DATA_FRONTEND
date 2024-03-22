@@ -18,7 +18,7 @@ const AllSocialApps = () => {
                 <h5>Connect your Instagram account</h5>
                 {<InstagramConnect />}
                 <p className='text-end mt-2'>
-                    After connecting <Link to="/signup" className='ms-2'>Move Next</Link>
+                    After connecting <Link to="/send-post" className='ms-2'>Move Next</Link>
                 </p>
             </div>
         </div>

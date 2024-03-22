@@ -11,9 +11,11 @@ const InstagramConnect = () => {
 <InstagramLogin
   clientId="862618282301080"
   buttonText="Login with Instagram"
+  onSuccess={(res) => console.log(res)}
+  onFailure={(error) => console.log('Login error:', error)}
+  redirectUrl="https://74d4-39-58-131-72.ngrok-free.app/"
   scope={['user_profile']}
-  onSuccess={responseInstagram}
-  onFailure={(error) => console.error('Login error:', error)}
+  
 />
 
 

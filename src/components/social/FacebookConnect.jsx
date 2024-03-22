@@ -5,17 +5,20 @@ import axios from "axios";
 
 const FacebookConnect = () => {
 
-  const {facebookConnectError, setFacebookConnectError} = useState({
-    error_res: ""
-  })
+  const [facebookConnect, setFacebookConnect] = useState({});
+  const [facebookConnectError, setFacebookConnectError] = useState(null);
 
   const connectFacebookAccount = async (e) => {
-    const user_token = "d5200e97d8c6e7646349fe56ffed549a4e3e7867"
+    const config = {
+      headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` }
+    }; 
     await axios.get(
-      `http://localhost:8000/social_media/facebook_connect/?user_token=${user_token}&access_token=${localStorage.getItem("facebookAccessToken")}&user_token=${localStorage.getItem("facebookUserId")}`,
+      `http://localhost:8000/social_media/facebook_connect/?access_token=${localStorage.getItem("facebookAccessToken")}&fb_user_id=${localStorage.getItem("facebookUserId")}`,
+      config
     )
     .then( (response) => {
-      console.log(response, "connected")
+      console.log(response, "connected");
+      setFacebookConnect(() => ({connected: "Connected"}))
     })
     .catch((error) => {
       console.log(error)
@@ -43,6 +46,7 @@ const FacebookConnect = () => {
           onReject={onReject}
         >
         <FacebookLoginButton>Facebook</FacebookLoginButton>
+        <span style={{color:"green",}}>{facebookConnect?.connected}</span>
         </LoginSocialFacebook>
     </div>
   )

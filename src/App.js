@@ -11,6 +11,7 @@ import AllSocialApps from './components/social/AllSocialApps';
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import SendPost from './components/social/SendPost';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path='insta' element={<InstagramConnect />}></Route>
           <Route path="facebook" element={<FacebookConnect />}></Route>
           <Route path="all-social-apps" element={<AllSocialApps />}></Route>
+          <Route path="send-post" element={<SendPost />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
